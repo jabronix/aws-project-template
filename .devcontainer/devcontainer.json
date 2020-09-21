@@ -1,0 +1,54 @@
+{
+	"name": "Docker from Docker",
+	"dockerFile": "Dockerfile",
+	"mounts": [ "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
+		"type=bind,source=${localEnv:HOME},target=/localhost",
+		"type=bind,source=${localEnv:HOME}/.aws,target=/home/dev/.aws",
+		"type=bind,source=${localEnv:HOME}/.ssh,target=/home/dev/.ssh",
+		"type=bind,source=${localEnv:HOME}/.vimrc,target=/home/dev/.vimrc",
+		"type=bind,source=${localEnv:HOME}/.vim,target=/home/dev/.vim" ],
+
+	// Use this environment variable if you need to bind mount your local source code into a new container.
+	"remoteEnv": {
+		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+	},
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/zsh"
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-azuretools.vscode-docker",
+		"steoates.autoimport",
+		"amazonwebservices.aws-toolkit-vscode",
+		"dbaeumer.vscode-eslint",
+		"tamasfe.even-better-toml",
+		"mhutchie.git-graph",
+		"gitlab.gitlab-workflow",
+		"golang.go",
+		"hashicorp.terraform",
+		"ms-kubernetes-tools.vscode-kubernetes-tools",
+		"esbenp.prettier-vscode",
+		"ms-python.vscode-pylance",
+		"ms-python.python",
+		"threadheap.serverless-ide-vscode",
+		"foxundermoon.shell-format",
+		"basarat.god",
+		"visualstudioexptteam.vscodeintellicode",
+		"dotjoshjohnson.xml",
+		"redhat.vscode-yaml",
+		"ms-vscode.powershell"
+	],
+	
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "docker --version",
+
+	// Uncomment the next two lines to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+	"overrideCommand": false,
+	"remoteUser": "dev"
+}

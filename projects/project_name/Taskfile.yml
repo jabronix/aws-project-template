@@ -1,0 +1,9 @@
+version: '3'
+
+# more info about this file: https://taskfile.dev/#/
+
+# controls the command gets printed before running it
+silent: false
+
+# will group concurrent task output.  change to prefix or interleave to see live updates
+output: group
